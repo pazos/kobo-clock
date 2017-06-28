@@ -1,0 +1,22 @@
+diff -uNr a/Makefile b/Makefile
+--- a/Makefile	2016-03-25 17:07:26.000000000 +0100
++++ b/Makefile	2017-06-11 23:46:34.762331420 +0200
+@@ -3,7 +3,7 @@
+ 
+ SRC= .
+ 
+-COMPAT_CFLAGS= -D _GNU_SOURCE -I $(SRC)/compat53 -include compat-5.3.h
++COMPAT_CFLAGS= -D _GNU_SOURCE -I ../lua-5.2.4/src -I $(SRC)/compat53 -include compat-5.3.h
+ CFLAGS= -shared -fPIC -Wall -Wextra -pedantic -std=c99 $(MYCFLAGS) $(COMPAT_CFLAGS)
+ 
+ CORE_SO= evdev/core.so
+@@ -17,7 +17,7 @@
+ default: $(CORE_SO)
+ 
+ $(CORE_SO): $(CORE_C)
+-	gcc $(CFLAGS) -o $(CORE_SO) $(CORE_C) $(LDFLAGS)
+-	
++	arm-linux-gnueabihf-gcc $(CFLAGS) -o $(CORE_SO) $(CORE_C) $(LDFLAGS)
++
+ clean:
+ 	-rm $(CORE_SO)

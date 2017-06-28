@@ -1,0 +1,7 @@
+build/
+dl/
+lib/
+include/
+kobo-clock.tar
+rootfs/
+
